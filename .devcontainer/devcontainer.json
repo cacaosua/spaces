@@ -4,7 +4,7 @@
 // 	},
 // 	"name": "Flutter",
 		
-	  "image": "cirrusci/flutter:beta",
+	  "image": "cirrusci/flutter:3.0.0",
 	  "forwardPorts": [3000],
 	"extensions": [
 		"Dart-Code.dart-code",
