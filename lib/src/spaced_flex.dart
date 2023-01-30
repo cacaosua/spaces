@@ -335,8 +335,8 @@ class SpacedFlex extends StatelessWidget {
 
     if (padding != null && padding != EdgeInsets.zero) {
       result = Padding(
-        child: result,
         padding: padding!,
+        child: result,
       );
     }
 

@@ -4,18 +4,17 @@ version: 0.5.0
 homepage: https://github.com/aloisdeniel/spaces
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
-  flutter: ">=2.0.0 <3.0.0"
+  sdk: ">=2.18.0 <3.0.0"
 
 dependencies:
   gap: ^2.0.0-nullsafety.1
   flutter:
     sdk: flutter
-  freezed_annotation: ^0.13.0-nullsafety.0
+  freezed_annotation: ^2.0.3
 
 dev_dependencies:
-  freezed: ^0.14.0-nullsafety.0
-  build_runner: ^1.11.5
+  freezed: 2.3.2
+  build_runner: 2.3.3
   flutter_test:
     sdk: flutter
 
