@@ -112,6 +112,8 @@ extension SpaceSizeExtension on SpaceSize {
         return spacing.spaces.big;
       case SpaceSize.extraBig:
         return spacing.spaces.extraBig;
+      case SpaceSize.margin:
+        return spacing.spaces.margin;
       default:
         return spacing.spaces.normal;
     }

@@ -86,7 +86,7 @@ class SpacedFlex extends StatelessWidget {
   ///
   /// The [spaceBetween] will add this amount of space between all children.
   const SpacedFlex({
-    Key? key,
+    super.key,
     required this.direction,
     this.clipBehavior = Clip.hardEdge,
     this.mainAxisAlignment = MainAxisAlignment.start,
@@ -116,7 +116,7 @@ class SpacedFlex extends StatelessWidget {
   ///
   /// A [padding] can be defined to add space around children.
   const SpacedFlex.extraSmall({
-    Key? key,
+    super.key,
     required this.direction,
     this.clipBehavior = Clip.hardEdge,
     this.mainAxisAlignment = MainAxisAlignment.start,
@@ -146,7 +146,7 @@ class SpacedFlex extends StatelessWidget {
   ///
   /// A [padding] can be defined to add space around children.
   const SpacedFlex.small({
-    Key? key,
+    super.key,
     required this.direction,
     this.clipBehavior = Clip.hardEdge,
     this.mainAxisAlignment = MainAxisAlignment.start,
@@ -176,7 +176,7 @@ class SpacedFlex extends StatelessWidget {
   ///
   /// A [padding] can be defined to add space around children.
   const SpacedFlex.semiSmall({
-    Key? key,
+    super.key,
     required this.direction,
     this.clipBehavior = Clip.hardEdge,
     this.mainAxisAlignment = MainAxisAlignment.start,
@@ -206,7 +206,7 @@ class SpacedFlex extends StatelessWidget {
   ///
   /// A [padding] can be defined to add space around children.
   const SpacedFlex.normal({
-    Key? key,
+    super.key,
     required this.direction,
     this.clipBehavior = Clip.hardEdge,
     this.mainAxisAlignment = MainAxisAlignment.start,
@@ -236,7 +236,7 @@ class SpacedFlex extends StatelessWidget {
   ///
   /// A [padding] can be defined to add space around children.
   const SpacedFlex.semiBig({
-    Key? key,
+    super.key,
     required this.direction,
     this.clipBehavior = Clip.hardEdge,
     this.mainAxisAlignment = MainAxisAlignment.start,
@@ -266,7 +266,7 @@ class SpacedFlex extends StatelessWidget {
   ///
   /// A [padding] can be defined to add space around children.
   const SpacedFlex.big({
-    Key? key,
+    super.key,
     required this.direction,
     this.clipBehavior = Clip.hardEdge,
     this.mainAxisAlignment = MainAxisAlignment.start,
@@ -296,7 +296,7 @@ class SpacedFlex extends StatelessWidget {
   ///
   /// A [padding] can be defined to add space around children.
   const SpacedFlex.extraBig({
-    Key? key,
+    super.key,
     required this.direction,
     this.clipBehavior = Clip.hardEdge,
     this.mainAxisAlignment = MainAxisAlignment.start,
@@ -308,6 +308,36 @@ class SpacedFlex extends StatelessWidget {
     this.children,
     this.padding,
   })  : sizeBetween = SpaceSize.extraBig,
+        spaceBetween = null;
+
+  /// Creates a flex layout with an `margin` space between children.
+  ///
+  /// The [direction] is required.
+  ///
+  /// The [direction], [mainAxisAlignment], [crossAxisAlignment], and
+  /// [verticalDirection] arguments must not be null. If [crossAxisAlignment] is
+  /// [CrossAxisAlignment.baseline], then [textBaseline] must not be null.
+  ///
+  /// The [textDirection] argument defaults to the ambient [Directionality], if
+  /// any. If there is no ambient directionality, and a text direction is going
+  /// to be necessary to decide which direction to lay the children in or to
+  /// disambiguate `start` or `end` values for the main or cross axis
+  /// directions, the [textDirection] must not be null.
+  ///
+  /// A [padding] can be defined to add space around children.
+  const SpacedFlex.margin({
+    super.key,
+    required this.direction,
+    this.clipBehavior = Clip.hardEdge,
+    this.mainAxisAlignment = MainAxisAlignment.start,
+    this.mainAxisSize = MainAxisSize.max,
+    this.crossAxisAlignment = CrossAxisAlignment.center,
+    this.textDirection,
+    this.verticalDirection = VerticalDirection.down,
+    this.textBaseline,
+    this.children,
+    this.padding,
+  })  : sizeBetween = SpaceSize.margin,
         spaceBetween = null;
 
   @override
@@ -553,6 +583,31 @@ class SpacedColumn extends SpacedFlex {
           textBaseline: textBaseline,
           padding: padding,
         );
+
+  const SpacedColumn.margin({
+    Key? key,
+    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
+    MainAxisSize mainAxisSize = MainAxisSize.max,
+    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
+    TextDirection? textDirection,
+    VerticalDirection verticalDirection = VerticalDirection.down,
+    TextBaseline? textBaseline,
+    List<Widget>? children,
+    EdgeInsets? padding,
+    Clip clipBehavior = Clip.hardEdge,
+  }) : super.margin(
+          children: children,
+          key: key,
+          direction: Axis.vertical,
+          clipBehavior: clipBehavior,
+          mainAxisAlignment: mainAxisAlignment,
+          mainAxisSize: mainAxisSize,
+          crossAxisAlignment: crossAxisAlignment,
+          textDirection: textDirection,
+          verticalDirection: verticalDirection,
+          textBaseline: textBaseline,
+          padding: padding,
+        );
 }
 
 /// A widget that behaves like a [Row], but with the possibility to
@@ -752,6 +807,31 @@ class SpacedRow extends SpacedFlex {
     EdgeInsets? padding,
     Clip clipBehavior = Clip.hardEdge,
   }) : super.extraBig(
+          children: children,
+          key: key,
+          direction: Axis.horizontal,
+          clipBehavior: clipBehavior,
+          mainAxisAlignment: mainAxisAlignment,
+          mainAxisSize: mainAxisSize,
+          crossAxisAlignment: crossAxisAlignment,
+          textDirection: textDirection,
+          verticalDirection: verticalDirection,
+          textBaseline: textBaseline,
+          padding: padding,
+        );
+
+  const SpacedRow.margin({
+    Key? key,
+    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
+    MainAxisSize mainAxisSize = MainAxisSize.max,
+    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
+    TextDirection? textDirection,
+    VerticalDirection verticalDirection = VerticalDirection.down,
+    TextBaseline? textBaseline,
+    List<Widget>? children,
+    EdgeInsets? padding,
+    Clip clipBehavior = Clip.hardEdge,
+  }) : super.margin(
           children: children,
           key: key,
           direction: Axis.horizontal,
