@@ -32,6 +32,7 @@ abstract class SpacingData with _$SpacingData {
       semiBig: normal * 1.5,
       big: normal * 2.5,
       extraBig: normal * 5.0,
+      margin: normal * 2.4,
     );
   }
 
@@ -44,6 +45,7 @@ abstract class SpacingData with _$SpacingData {
     required double semiBig,
     required double big,
     required double extraBig,
+    required double margin,
   }) {
     final spaces = SizeSet(
       extraSmall: extraSmall,
@@ -53,6 +55,7 @@ abstract class SpacingData with _$SpacingData {
       semiBig: semiBig,
       big: big,
       extraBig: extraBig,
+      margin: margin,
     );
     return SpacingData(
       spaces: spaces,
@@ -93,7 +96,8 @@ abstract class SpacingInsetsData with _$SpacingInsetsData {
         normal: EdgeInsets.all(spaces.normal),
         semiBig: EdgeInsets.all(spaces.semiBig),
         big: EdgeInsets.all(spaces.big),
-        extraBig: EdgeInsets.all(spaces.big),
+        extraBig: EdgeInsets.all(spaces.extraBig),
+        margin: EdgeInsets.all(spaces.margin),
       ),
       vertical: SizeSet(
         extraSmall: EdgeInsets.symmetric(vertical: spaces.extraSmall),
@@ -103,6 +107,7 @@ abstract class SpacingInsetsData with _$SpacingInsetsData {
         semiBig: EdgeInsets.symmetric(vertical: spaces.semiBig),
         big: EdgeInsets.symmetric(vertical: spaces.big),
         extraBig: EdgeInsets.symmetric(vertical: spaces.big),
+        margin: EdgeInsets.symmetric(vertical: spaces.margin),
       ),
       horizontal: SizeSet(
         extraSmall: EdgeInsets.symmetric(horizontal: spaces.extraSmall),
@@ -111,7 +116,8 @@ abstract class SpacingInsetsData with _$SpacingInsetsData {
         normal: EdgeInsets.symmetric(horizontal: spaces.normal),
         semiBig: EdgeInsets.symmetric(horizontal: spaces.semiBig),
         big: EdgeInsets.symmetric(horizontal: spaces.big),
-        extraBig: EdgeInsets.symmetric(horizontal: spaces.big),
+        extraBig: EdgeInsets.symmetric(horizontal: spaces.extraBig),
+        margin: EdgeInsets.symmetric(horizontal: spaces.margin),
       ),
       onlyRight: SizeSet(
         extraSmall: EdgeInsets.only(right: spaces.extraSmall),
@@ -120,7 +126,8 @@ abstract class SpacingInsetsData with _$SpacingInsetsData {
         normal: EdgeInsets.only(right: spaces.normal),
         semiBig: EdgeInsets.only(right: spaces.semiBig),
         big: EdgeInsets.only(right: spaces.big),
-        extraBig: EdgeInsets.only(right: spaces.big),
+        extraBig: EdgeInsets.only(right: spaces.extraBig),
+        margin: EdgeInsets.only(right: spaces.margin),
       ),
       onlyLeft: SizeSet(
         extraSmall: EdgeInsets.only(left: spaces.extraSmall),
@@ -129,7 +136,8 @@ abstract class SpacingInsetsData with _$SpacingInsetsData {
         normal: EdgeInsets.only(left: spaces.normal),
         semiBig: EdgeInsets.only(left: spaces.semiBig),
         big: EdgeInsets.only(left: spaces.big),
-        extraBig: EdgeInsets.only(left: spaces.big),
+        extraBig: EdgeInsets.only(left: spaces.extraBig),
+        margin: EdgeInsets.only(left: spaces.margin),
       ),
       onlyBottom: SizeSet(
         extraSmall: EdgeInsets.only(bottom: spaces.extraSmall),
@@ -138,7 +146,8 @@ abstract class SpacingInsetsData with _$SpacingInsetsData {
         normal: EdgeInsets.only(bottom: spaces.normal),
         semiBig: EdgeInsets.only(bottom: spaces.semiBig),
         big: EdgeInsets.only(bottom: spaces.big),
-        extraBig: EdgeInsets.only(bottom: spaces.big),
+        extraBig: EdgeInsets.only(bottom: spaces.extraBig),
+        margin: EdgeInsets.only(bottom: spaces.margin),
       ),
       onlyTop: SizeSet(
         extraSmall: EdgeInsets.only(top: spaces.extraSmall),
@@ -147,7 +156,8 @@ abstract class SpacingInsetsData with _$SpacingInsetsData {
         normal: EdgeInsets.only(top: spaces.normal),
         semiBig: EdgeInsets.only(top: spaces.semiBig),
         big: EdgeInsets.only(top: spaces.big),
-        extraBig: EdgeInsets.only(top: spaces.big),
+        extraBig: EdgeInsets.only(top: spaces.extraBig),
+        margin: EdgeInsets.only(top: spaces.margin),
       ),
       exceptBottom: SizeSet(
         extraSmall: EdgeInsets.fromLTRB(
@@ -190,6 +200,12 @@ abstract class SpacingInsetsData with _$SpacingInsetsData {
           spaces.extraBig,
           spaces.extraBig,
           spaces.extraBig,
+          0,
+        ),
+        margin: EdgeInsets.fromLTRB(
+          spaces.margin,
+          spaces.margin,
+          spaces.margin,
           0,
         ),
       ),
@@ -236,6 +252,12 @@ abstract class SpacingInsetsData with _$SpacingInsetsData {
           spaces.extraBig,
           spaces.extraBig,
         ),
+        margin: EdgeInsets.fromLTRB(
+          0,
+          spaces.margin,
+          spaces.margin,
+          spaces.margin,
+        ),
       ),
       exceptRight: SizeSet(
         extraSmall: EdgeInsets.fromLTRB(
@@ -279,6 +301,12 @@ abstract class SpacingInsetsData with _$SpacingInsetsData {
           spaces.extraBig,
           0,
           spaces.extraBig,
+        ),
+        margin: EdgeInsets.fromLTRB(
+          spaces.margin,
+          spaces.margin,
+          0,
+          spaces.margin,
         ),
       ),
       exceptTop: SizeSet(
@@ -324,6 +352,12 @@ abstract class SpacingInsetsData with _$SpacingInsetsData {
           spaces.extraBig,
           spaces.extraBig,
         ),
+        margin: EdgeInsets.fromLTRB(
+          spaces.margin,
+          0,
+          spaces.margin,
+          spaces.margin,
+        ),
       ),
     );
   }
@@ -355,6 +389,7 @@ abstract class SizeSet<T> with _$SizeSet<T> {
     required T semiBig,
     required T big,
     required T extraBig,
+    required T margin,
   }) = _SizeSet;
 }
 
@@ -366,4 +401,5 @@ enum SpaceSize {
   semiBig,
   big,
   extraBig,
+  margin,
 }
